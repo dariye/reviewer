@@ -40,7 +40,7 @@ end
 
 group :test do
   gem 'turn'
-  gem 'selenium-webdriver'
+  # gem 'selenium-webdriver'
   gem 'faker'
   gem 'capybara'
   gem 'capybara-webkit'
