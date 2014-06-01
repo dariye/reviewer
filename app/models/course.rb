@@ -7,13 +7,6 @@ class Course < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
 
 
-  # searchable do
-  #   text :course_name, :boost => 2
-  #   text :course_code, :boost => 2
-  #   text :course_desc
-  #   double :rating
-  # end
-
   def average_rating
     ratings = []
     self.reviews.each do |r|
@@ -23,10 +16,10 @@ class Course < ActiveRecord::Base
     ratings.reduce(:+).to_f / ratings.size
   end
 
-  # It returns the articles whose titles contain one or more words that form the query
+  # It returns the courses whose titles contain one or more words that form the query
   def self.search(query)
-    # where(:title, query) -> This would return an exact match of the query
-    where("title like ?", "%#{query}%")
+    # where(:course_name, query) -> This would return an exact match of the query
+    where("course_name like ?", "%#{query}%")
   end
 
 end

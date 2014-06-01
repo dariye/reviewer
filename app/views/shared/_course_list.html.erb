@@ -1,0 +1,31 @@
+  <div class="course_list">
+    <ul class="list">
+      <% @courses.each do |course| %>
+      <li>
+        <h1><%= link_to course.course_name, course %></h1>
+        <p>Code: <%= course.course_code %>  Website: <%= course.course_website %></p>
+        <p>Rating</p>
+        <div id="<%= course.id %>_star">
+          <script>
+            $('#<%= course.id %>_star').raty({
+                readOnly: true,
+                    score: <%= course.average_rating %>,
+                path: '/assets'
+              });
+         </script>
+        </div>
+        <p><%= course.course_desc %></p>
+        <p><a href="#" class="button" data-dropdown="contentDrop">Review »</a></p>
+          <div id="contentDrop" class="f-dropdown content medium" data-dropdown-content="" style="position: absolute; top: 336.765625px; left: -99999px;">
+            <% if course.reviews.exists? %>
+            <% course.reviews.each do |review| %>
+              Name:<h4><%= review.name %> | Contact: <%= review.email %></p></h4>
+              <p><%= review.body %> </p>
+            <% end %>
+          <% end %>
+            <%= link_to "Write Review", new_course_review_path(course), :class => 'button' %>
+        </div>
+      </li>
+    </ul>
+      <% end %>
+  </div>

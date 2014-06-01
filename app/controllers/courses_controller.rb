@@ -1,13 +1,7 @@
 class CoursesController < ApplicationController
   def index
-    # @query = Course.search do
-    #   fulltext params[:search]
-    #   facet :course_name, :course_code, :course_desc
-    # end
-    # @courses = @query.results
-    # @courses = Course.all
     if params[:search]
-      @courses = Course.search(params[:search]).order("created_at DESC")
+      @courses = Course.search(params[:search]).order("course_name DESC")
     else
       @courses = Course.order("created_at DESC")
     end
