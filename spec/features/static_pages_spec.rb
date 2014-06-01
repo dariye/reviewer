@@ -7,6 +7,15 @@ describe "Static pages" do
 
     it { should have_content("NYU Course Reviewer") }
     it { should have_title(page.title) }
+    it { should have_content("Sign in") }
+
+    it { should have_selector('.search') }
+
+    describe  "show course list" do
+      it { should have_selector('li') }
+    end
+
+
 
   end
 end

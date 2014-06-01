@@ -14,8 +14,19 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'bootstrap-sass'
+# gem 'bootstrap-sass'
+
+gem 'foundation-rails'
+
 gem 'bcrypt'
+
+#googleauth
+
+gem "omniauth-google-oauth2"
+
+#search
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 
 #pagination
 gem 'will_paginate', '3.0.4'

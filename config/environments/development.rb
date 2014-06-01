@@ -1,6 +1,9 @@
 CourseReviewer::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  #ENV vairables
 
+  ENV["GOOGLE_CLIENT_ID"] = "1013558239253-fblcasj96rdki3qocnb4458uluu28vte.apps.googleusercontent.com"
+  ENV["GOOGLE_CLIENT_SECRET"] = "EHBqL7jqClPAOYijzufGjvc0"
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.

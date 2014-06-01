@@ -1,3 +1,56 @@
 <% provide(:title, 'Course Reviewer') %>
 
-<h1>NYU Course Reviewer</h1>
+<div class="row">
+  <div class="large-6 columns">
+    <div class="container">
+  <h1>Course Reviewer</h1>
+ <div class="search">
+    <form>
+      <input type="text" name="search" >
+      <input type="submit" value="Search" >
+    </form>
+    <form>
+      <select>
+        <option value="filter">Filter</option>
+        <option value="department">Department</option>
+        <option value="school">School</option>
+        <option value="instructor">Instructor</option>
+        <option value="term">Term</option>
+      </select>
+    </form>
+  </div>
+  <div class="course_list">
+    <ul>
+      <% @courses.each do |course| %>
+      <li>
+        <h1><%= link_to course.course_name, course %></h1>
+        <p>Code: <%= course.course_code %>  Website: <%= course.course_website %></p>
+        <p>Rating</p>
+        <div id="<%= course.id %>_star">
+          <script>
+            $('#<%= course.id %>_star').raty({
+                readOnly: true,
+                    score: <%= course.average_rating %>,
+                path: '/assets'
+              });
+         </script>
+        </div>
+         <!--  <div class="stars-active" style="width: <%= (course.average_rating.to_f / 5.to_f) * 100 %>%"></div> -->
+        <p><%= course.course_desc %></p>
+        <h2>Review</h2>
+        <section>
+          <% if course.reviews.exists? %>
+            <% course.reviews.each do |review| %>
+              <p>Name: <%= review.name %> Contact: <%= review.email %></p>
+              <p><%= review.body %> </p>
+            <% end %>
+          <% end %>
+        </section>
+        <%= link_to "Write Review", new_course_review_path(course), :class => 'button' %>
+      </li>
+    </ul>
+      <% end %>
+  </div>
+</div>
+  </div>
+</div>

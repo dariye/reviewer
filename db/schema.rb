@@ -11,9 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140601015620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "courses", force: true do |t|
+    t.string   "course_name"
+    t.string   "course_code"
+    t.text     "course_desc"
+    t.integer  "credit_value"
+    t.string   "course_website"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.text     "body"
+    t.integer  "rating"
+    t.string   "name"
+    t.string   "email"
+    t.integer  "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reviews", ["course_id"], name: "index_reviews_on_course_id", using: :btree
 
 end
