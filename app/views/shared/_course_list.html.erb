@@ -15,8 +15,8 @@
          </script>
         </div>
         <p><%= course.course_desc %></p>
-        <p><a href="#" class="button" data-dropdown="contentDrop">Review »</a></p>
-          <div id="contentDrop" class="f-dropdown content medium" data-dropdown-content="" style="position: absolute; top: 336.765625px; left: -99999px;">
+        <p><a href="#" class="button" data-dropdown="contentDrop">Reviews »</a></p>
+          <div id="contentDrop" class="f-dropdown content medium" data-dropdown-content="" >
             <% if course.reviews.exists? %>
             <% course.reviews.each do |review| %>
               Name:<h4><%= review.name %> | Contact: <%= review.email %></p></h4>

@@ -12,11 +12,11 @@
        </script>
       </div>
       <p><%= @course.course_desc %></p>
-      <h2>Review</h2>
+      <h2>Reviews</h2>
       <section>
         <% if @course.reviews.exists? %>
           <% @course.reviews.each do |review| %>
-            <p>Name: <%= review.name %> Contact: <%= review.email %></p>
+            <p>Name: <%= review.name %></p> <p>Contact: <%= review.email %></p>
             <p><%= review.body %> </p>
           <% end %>
         <% end %>
