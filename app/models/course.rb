@@ -19,7 +19,7 @@ class Course < ActiveRecord::Base
   # It returns the courses whose titles contain one or more words that form the query
   def self.search(query)
     # where(:course_name, query) -> This would return an exact match of the query
-    where("course_name like ?", "%#{query}%")
+    where("course_name = ?", query)
   end
 
 end
