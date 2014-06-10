@@ -12,11 +12,11 @@
   </div>
   <div class="field">
     <%= f.label :body %><br>
-    <%= f.text_area :body , :required => 'required' %>
+    <%= f.text_area :body, :required => 'required' %>
   </div>
 <div class="field">
   <%= f.label :rating %>
-  <%= f.number_field :rating , :required => 'required' %>
+  <%= f.number_field :rating, :required => 'required', in: 1..5, step: 1 %>
 </div>
 <div class="field">
   <input type="hidden" name="review[course_id]" value="<%= @course.id %>" />
