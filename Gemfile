@@ -32,6 +32,8 @@ gem 'sunspot_solr'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 
+gem "figaro"
+
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
